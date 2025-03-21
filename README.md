@@ -1,5 +1,11 @@
 # Belajar OOP (Object Oriented Programming) di TypeScript
 
+## Daftar Isi
+
+- [Pengenalan Object Oriented Programming](#Pengenalan-Object-Oriented-Programming)
+- [OOP di TypeScript](#OOP-di-TypeScript)
+- [Membuat Project](#Membuat-Project)
+
 ## Pengenalan Object Oriented Programming
 
 Apa itu OOP?
@@ -112,3 +118,50 @@ Cek di bagian package.json. Harusnya sudah terinstall semua
 ```
 
 Selesai setup project.
+
+## Class
+
+- Untuk membuat class di TypeScript, kita bisa menggunakan keyword class, sama seperti JavaScript
+- Cara membuat Object dari Class pun cukup menggunakan keyword new, sama juga seperti di JavaScript
+
+class.test.ts
+
+```
+describe("Class", () => {
+  it("should can create class", () => {
+    class Customer {}
+    class Order {}
+
+    <!-- bisa sebutkan class -->
+    const customer: Customer = new Customer();
+    <!-- bisa tidak sebutkan -->
+    const order = new Order();
+  });
+});
+
+```
+
+## Constructor
+
+- Constructor adalah method/function yang akan dipanggil pertama kali ketika Object dibuat
+- Constructor sama seperti Funciton biasanya, bisa memiliki parameter, yang membedakan adalah pada constructor, kita tidak perlu mengembalikan value
+
+class.test.ts
+
+```
+describe("Class", () => {
+  class Customer {
+    constructor() {
+      console.info("Create new customer");
+    }
+  }
+...
+  it("should can create constructor", () => {
+    new Customer();
+    new Customer();
+  });
+});
+
+```
+
+jadi, saat dipanggil dengan `new Customer()`, maka akan menampilkan "Create new customer" di console sebanyak 2 kali. Karena saat Customer dipanggil, maka yang pertama akan dijalankan adalah constructor.
