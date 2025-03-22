@@ -11,6 +11,8 @@
 - [Class](#Class)
 - [Constructor](#Constructor)
 - [Properties](#Properties)
+- [Method](#Method)
+- [Getter dan Setter](#Getter-dan-Setter)
 
 ## Pengenalan Object Oriented Programming
 
@@ -223,3 +225,40 @@ class Customer {
     this.id = id;
   }
 ```
+
+## Method
+
+- Selain properties, di Class juga bisa memiliki function, atau lebih sering disebut sebagai Method
+- Cara pembuatannya sama seperti di JavaScript, hanya saja kita perlu mendeklarasikan tipe data return value nya
+
+Jadi tambahkan method di dalam Class Customer <br>
+
+```
+class Customer {
+  readonly id: number;
+  name: string = "Guest";
+  age?: number;
+  constructor(id: number, name: string) {
+    this.id = id;
+    this.name = name;
+  }
+  sayHello(name: string): void {
+    console.info(`Hello ${name}, I'm ${this.name}`);
+  }
+  ...
+  it("should can have methods", () => {
+    const customer = new Customer(1, "Fiqih");
+    customer.sayHello("John");
+  });
+}
+```
+
+maka saat di testing, akan menampilkan "Hello John, I'm Fiqih" <br>
+
+## Getter dan Setter
+
+- Sampai sekarang, ketika ingin mengubah data properties, kita bisa langsung gunakan operator = (sama dengan), dan ketika ingn mengambil data cukup ginakan . (titik)
+- JavaScript memiliki fitur bernama Getter dan Setter, begitu juga di TypeScript, dimana kita bisa membuat method untuk mengubah properties dan juga method untuk mengambil properties
+- Karena bentuknya adalah method, maka kita bisa menambahkan validasi apapun pada method tersebut sebelum properties aslinya
+
+menit 31:36
